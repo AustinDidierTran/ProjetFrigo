@@ -2,18 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sample Site</title>
+    <title>Projet Frigo</title>
 
+    <!-- Paper Element imports -->
+    
+    <link rel="import" href="/bower_components/paper-toolbar/paper-toolbar.html">
+    <link rel="import" href="/bower_components/paper-fab/paper-fab.html">
+    <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+    
+    <!-- Iron Element imports -->
+
+    <link rel="import" href="bower_components/iron-pages/iron-pages.html">
+
+    <!-- Stylesheets --> 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="frigo.css">
+    <link rel="stylesheet" href="frigo.scss">
     
 </head>
 <body>
-
+    <paper-toolbar>
+        
+    </paper-toolbar>
+            <paper-tabs selected="0" noink>
+              <paper-tab>Ma liste d'épicerie</paper-tab>
+              <paper-tab>tab2</paper-tab>
+              <paper-tab>TAB 3</paper-tab>
+            </paper-tabs>
+    
     <div class="container">
-        <div class="jumbotron">
-            <h1>res.sendFile() Works!</h1>
-        </div>
+        <iron-pages selected="0">
+            <div>
+                <h1>Salut</h1>
+                <paper-fab></paper-fab>
+                
+            </div>
+            <div>One</div>
+            <div>Two</div>
+            <div>Three</div>
+        </iron-pages>
+        
     </div>
     
     <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
