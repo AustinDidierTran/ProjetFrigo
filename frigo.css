@@ -1,0 +1,26 @@
+h1 {
+    margin: auto;
+}
+
+body {
+    background: #512DA8;
+}
+
+paper-tab, paper-toolbar {
+    background: #512DA8;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+paper-material {
+        background: white;
+        box-sizing: border-box;
+        margin: 16px;
+        padding: 16px;
+        border-radius: 16px;
+}
+
+.temporaire {
+    background: #512DA8;
+}
