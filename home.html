@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRIGO - Connected grocery list</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    
+    <!-- Paper Element imports -->
+    
+    <link rel="import" href="bower_components/paper-button/paper-button.html">
+    <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
+    <link rel="import" href="bower_components/paper-fab/paper-fab.html">
+    <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+    <link rel="import" href="bower_components/paper-material/paper-material.html">
+    
+    <link rel="import" href="http://www.polymer-project.org/0.5/components/paper-ripple/paper-ripple.html">
+    <link rel="import" href="http://www.polymer-project.org/0.5/components/core-icon/core-icon.html">
+    
+    <!-- Iron Element imports -->
+
+    <link rel="import" href="bower_components/iron-pages/iron-pages.html">
+
+    <!-- Google Web Component imports -->
+    
+    <link rel="import" href="bower_components/google-signin/google-signin.html">
+
+    <!-- Custom Element imports -->
+    
+    <link rel="import" href="frigo_components/element-epicerie.html">
+
+    <!-- Stylesheets --> 
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="home.css">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700">
+    
+    
+</head>
+<body>
+    
+   
+    <paper-toolbar id="top-toolbar">
+        <!--<h1><element-title>FRIGO</element-title></h1>-->
+            <h1><a href=/home.html ><img src="/IMAGES/logo_frigo_small.png" alt="logo" /></a></h1>
+            <!--^j'ai rajouté un lien vers la page d'acceuil a partir du h1 (lien a changer ulterieurement)-->
+
+            <google-signin client-id="590129464922-hi0of8i77tujpkfputuhijtbvf9fkbg9.apps.googleusercontent.com" height="small" labelSignin="Connexion" scopes="https://www.googleapis.com/auth/drive"></google-signin>
+
+    </paper-toolbar>
+    <template is="dom-bind">
+        
+       
+				<!--<paper-tabs selected="{{selected}}" noink>
+                    <paper-tab><i class="fa fa-bars"></i>&nbspMa liste d'épicerie</paper-tab>
+                    <paper-tab><i class="fa fa-history"></i>&nbspMon historique</paper-tab>
+                    <paper-tab><i class="fa fa-money"></i>&nbspRabais</paper-tab>
+                    <paper-tab><i class="fa fa-cog"></i>&nbspParamètres</paper-tab>
+                </paper-tabs>-->
+        
+        
+<!--Responsive Paper-Tab-->        
+<div class="siteWrapper"> 
+    <div class="header-wrap margin-wrap">
+      <table width="100%" cellpadding="0" cellspacing="0">
+          <tr>
+              <td style="width: 100%; padding-right:10px;">
+                  <paper-tabs selected="{{selected}}" noink role="tablist">
+                      <paper-tab role="tab" class=""><core-field><i class="fa fa-home"></i><label>&nbsp Home</label></core-field></paper-tab>
+<!--                      <paper-tab role="tab" class=""><core-field><i class="fa fa-history"></i><label>&nbsp Mon historique</label></core-field></paper-tab>
+-->                      <paper-tab role="tab" class=""><core-field><i class="fa fa-bars"></i><label>&nbsp Mes Listes</label></core-field></paper-tab>
+                      <paper-tab role="tab" class=""><core-field><i class="fa fa-cog"></i><label>&nbsp Paramètres</label></core-field></paper-tab>
+                  </paper-tabs>
+              </td>
+          </tr>
+      </table>
+    </div>
+</div>  
+            
+            
+        
+
+        <div class="container">
+            
+            <iron-pages selected="{{selected}}">
+                
+                <div id="epicerie">
+                    
+                    <!--message de bienvenue-->
+                    <div class="bienvenue">
+                        <p><center><b>Bienvenue sur Frigo.</b></center></p> 
+                     </div>
+                     
+                    <div class= "sousTexte"> <p><center>Pour commencer connectez vous 
+                         à l'aide de votre compte gmail ou à l'aide du code généré par votre scanner</center></p>
+                    </div>
+                    
+                    <element-epicerie>
+                        <span>Salade a Claudette:</span>
+                    </element-epicerie>
+                    <element-epicerie>
+                        <span>Pinte de pain:</span>
+                    </element-epicerie>
+                    <element-epicerie>
+                        <span>Pinte de jus expiré date:</span>
+                        <p>Salut</p>
+                    </element-epicerie>
+                </div>
+                
+                <div id="historique">
+                    <element-epicerie>
+                        <span>Bouteille d'eau:</span>
+                    </element-epicerie>
+                    <element-epicerie>
+                        <span>Jus de pomme:</span>
+                    </element-epicerie>
+                    <element-epicerie>
+                        <span>Crème glacée:</span>
+                    </element-epicerie>
+                </div>
+                
+                
+                <div id="parametre">
+                    <element-epicerie>
+                        <span>Compte</span>
+                    </element-epicerie>
+                    <element-epicerie>
+                        <span>Scanner</span>
+                    </element-epicerie>
+                    <element-epicerie>
+                        <span>options</span>
+                    </element-epicerie>
+                </div>
+                
+                
+            </iron-pages>
+            <!--code du footer-->
+		<footer class="footer-distributed">
+
+			<div class="footer-left">
+
+				<h3>Team<span>Frigo</span></h3>
+
+				<p class="footer-links">
+					<a href="#">Home</a>
+					·
+					<a href="#">Blog</a>
+					·
+					<a href="#">Pricing</a>
+					·
+					<a href="#">About</a>
+					·
+					<a href="#">Faq</a>
+					·
+					<a href="#">Contact</a>
+				</p>
+
+				<p class="footer-company-name">Team FRIGO &copy; 2015</p>
+			</div>
+
+			<div class="footer-center">
+
+				<div>
+					<i class="fa fa-map-marker"></i>
+					<p><span>Université de Sherbrooke</span> Sherbrooke, Canada</p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+					<p>+1 555 123456</p>
+				</div>
+
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="mailto:support@company.com">support@company.com</a></p>
+				</div>
+
+			</div>
+
+			<div class="footer-right">
+
+				<p class="footer-company-about">
+					<span>About the company</span>
+					Frigo est une application crée par le groupe de projet du même nom,
+					à l'université de sherbrooke en 2015
+				</p>
+
+				<div class="footer-icons">
+
+					<a href="#"><i class="fa fa-facebook"></i></a>
+					<a href="#"><i class="fa fa-twitter"></i></a>
+					<a href="#"><i class="fa fa-linkedin"></i></a>
+					<a href="#"><i class="fa fa-github"></i></a>
+
+				</div>
+
+			</div>
+
+		</footer>
+       </div>
+    </template>
+     
+    
+    
+    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="frigo.js"></script>
+    
+</body>
+</html>
