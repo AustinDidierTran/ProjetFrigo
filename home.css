@@ -7,6 +7,7 @@ h1 {
 body {
    
     background:rgb(52,68,119);
+
   /* background-color: #cccccc;*/
 }
 
@@ -56,15 +57,15 @@ paper-material {
 }
 
 .container {
-     background: white;
-     
-     min-width: 100%;
-     min-height:700px;
-     
-     background-image: url("/IMAGES/background_image.jpg"); /*image provisoire*/
+
+    /* min-width: 100%;
+     min-height:700px;*/
+      background:rgb(52,68,119);
+
+     /*background-image: url("/IMAGES/BackFruits.jpg"); /*image provisoire*/
     
-     background-size: 100% 100%;
-     background-repeat: no-repeat;
+     /*background-size: 100% 100%;*/
+     /*background-repeat: repeat;*/
    
 }
 .footer{
@@ -266,7 +267,7 @@ google-signin {
     
      background-size: 100% 100%;
      background-repeat: no-repeat;
-     display:none;
+     
      
 }
 .bienvenueText{ /*Message d'intro au site*/
@@ -280,5 +281,5 @@ google-signin {
     color:black;
 }
 #homePage{
-	 
+	display:none;
 }

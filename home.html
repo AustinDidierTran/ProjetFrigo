@@ -40,30 +40,39 @@
 </head>
 <body>
     
+    <template id="awareness" is="dom-bind">
+    <google-signin-aware
+        scopes="{{scope}}"
+        signed-in="{{signedIn}}"
+        offline="{{offline}}"
+        is-authorized="{{isAuthorized}}"
+        need-additional-auth="{{needAdditionalAuth}}"
+        on-google-signin-aware-success="handleSignIn"
+        on-google-signin-offline-success="handleOffline"
+        on-google-signin-aware-signed-out="handleSignOut"></google-signin-aware>
     <!-- HOME PAGE -->
     
     <div id="bienvenuePage">
        
-        <!-- Page d'acceuil apparente quand non connecté-->
+        <!-- Page d'accueil apparente quand non connecté-->
          
            <div class= "Logobienvenue">
                  <center><img src="/IMAGES/logo_frigo_big.png" alt="logo"/></center>
+                 
+                   
            </div>
            
               <div class="bienvenueText">
                         <p><center><b>Bienvenue sur Frigo.</b></center></p> 
                 </div>
                      
-                    <div class= "sousTexte"> <p><center>Pour commencer connectez vous 
-                         à l'aide de votre compte gmail</center></p>
-                    </div>
-                       
+                <div class= "sousTexte"> <p><center>Pour commencer connectez vous 
+                    à l'aide de votre compte gmail</center></p>
                      <center><google-signin client-id="590129464922-hi0of8i77tujpkfputuhijtbvf9fkbg9.apps.googleusercontent.com" 
-                     height="small" labelSignin="Connexion" scopes="https://www.googleapis.com/auth/drive"></google-signin></center>
-
-    
-   
-        
+                    height="small" labelSignin="Connexion" scopes="https://www.googleapis.com/auth/drive"></google-signin></center>
+                </div>
+                       
+                 
     </div>
     
     <!-- HOME PAGE -->
@@ -78,16 +87,15 @@
                 <google-signin client-id="590129464922-hi0of8i77tujpkfputuhijtbvf9fkbg9.apps.googleusercontent.com" height="small" labelSignin="Connexion" scopes="https://www.googleapis.com/auth/drive"></google-signin>
     
         </paper-toolbar>
-        <template is="dom-bind">
             
         <!--Responsive Paper-Tab-->        
         <div class="siteWrapper"> 
             <div class="header-wrap margin-wrap">
               <table width="100%" cellpadding="0" cellspacing="0">
                   <tr>
-                      <td style="width: 100%; padding-right:10px;">
+                      <td style="width: 100%;">
                           <paper-tabs selected="{{selected}}" noink role="tablist">
-                              <paper-tab role="tab" class=""><core-field><i class="fa fa-home"></i><label>&nbsp Home</label></core-field></paper-tab>
+                              <paper-tab role="tab" class=""><core-field><i class="fa fa-home"></i><label>&nbsp Accueil</label></core-field></paper-tab>
         <!--                      <paper-tab role="tab" class=""><core-field><i class="fa fa-history"></i><label>&nbsp Mon historique</label></core-field></paper-tab>
         -->                      <paper-tab role="tab" class=""><core-field><i class="fa fa-bars"></i><label>&nbsp Mes Listes</label></core-field></paper-tab>
                               <paper-tab role="tab" class="flex"><i class="fa fa-cog"></i><label>&nbsp Paramètres</label></paper-tab>
@@ -105,7 +113,7 @@
             
             <!--message de bienvenue-->
             <div class="bienvenue">
-                <p><center><b>Bonjour bienvenue sur votre portail</b></center></p> 
+                <p><center><b>Bienvenue sur votre portail</b></center></p> 
                 
              
                 
@@ -167,23 +175,19 @@
 						·
 					<a href="#">Contact</a>
 				</p>
-
+                
 				<p class="footer-company-name">Team FRIGO &copy; 2015</p>
 			</div>
 
 			<div class="footer-center">
-
-				<div>
 					<i class="fa fa-map-marker"></i>
 					<p><span>Université de Sherbrooke</span> Sherbrooke, Canada</p>
-				</div>
-
 			</div>
 
 			<div class="footer-right">
 
 				<p class="footer-company-about">
-					<span>About the company</span>
+					<span>À propos</span>
 					Frigo est une application crée par le groupe de projet du même nom,
 					à l'université de sherbrooke en 2015
 				</p>
@@ -197,11 +201,11 @@
 
 		</footer>
        </div>
-    </template>
+    
      
         
     </div>
-    
+    </template>
     
     
     <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
