@@ -256,12 +256,29 @@ google-signin {
 	}
 
 }
-.bienvenue{
-	display:none;
-}
 #bienvenuePage{
-	
+	 background: white;
+     
+     min-width: 100%;
+     min-height:700px;
+     
+     background-image: url("/IMAGES/supermarche.jpg"); /*image provisoire*/
+    
+     background-size: 100% 100%;
+     background-repeat: no-repeat;
+     display:none;
+     
+}
+.bienvenueText{ /*Message d'intro au site*/
+    font-family: 'Calibri Light', sans-serif;
+    font-size: 60px;
+    color: black/*#669900*/;
+ 
+}
+.sousTexte{
+    font-size: 20px;
+    color:black;
 }
 #homePage{
-	display:none;
+	 
 }
