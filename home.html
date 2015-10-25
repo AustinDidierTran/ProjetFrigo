@@ -42,61 +42,68 @@
 </head>
 <body>
     
-   
-    <paper-toolbar id="top-toolbar">
-        <!--<h1><element-title>FRIGO</element-title></h1>-->
-            <h1><a href=/home.html ><img src="/IMAGES/logo_frigo_small.png" alt="logo" /></a></h1>
-            <!--^j'ai rajouté un lien vers la page d'acceuil a partir du h1 (lien a changer ulterieurement)-->
-
-            <google-signin client-id="590129464922-hi0of8i77tujpkfputuhijtbvf9fkbg9.apps.googleusercontent.com" height="small" labelSignin="Connexion" scopes="https://www.googleapis.com/auth/drive"></google-signin>
-
-    </paper-toolbar>
-    <template is="dom-bind">
+    <div id="bienvenuePage">
         
-       
-				<!--<paper-tabs selected="{{selected}}" noink>
-                    <paper-tab><i class="fa fa-bars"></i>&nbspMa liste d'épicerie</paper-tab>
-                    <paper-tab><i class="fa fa-history"></i>&nbspMon historique</paper-tab>
-                    <paper-tab><i class="fa fa-money"></i>&nbspRabais</paper-tab>
-                    <paper-tab><i class="fa fa-cog"></i>&nbspParamètres</paper-tab>
-                </paper-tabs>-->
-        
-        
-<!--Responsive Paper-Tab-->        
-<div class="siteWrapper"> 
-    <div class="header-wrap margin-wrap">
-      <table width="100%" cellpadding="0" cellspacing="0">
-          <tr>
-              <td style="width: 100%; padding-right:10px;">
-                  <paper-tabs selected="{{selected}}" noink role="tablist">
-                      <paper-tab role="tab" class=""><core-field><i class="fa fa-home"></i><label>&nbsp Home</label></core-field></paper-tab>
-<!--                      <paper-tab role="tab" class=""><core-field><i class="fa fa-history"></i><label>&nbsp Mon historique</label></core-field></paper-tab>
--->                      <paper-tab role="tab" class=""><core-field><i class="fa fa-bars"></i><label>&nbsp Mes Listes</label></core-field></paper-tab>
-                      <paper-tab role="tab" class=""><core-field><i class="fa fa-cog"></i><label>&nbsp Paramètres</label></core-field></paper-tab>
-                  </paper-tabs>
-              </td>
-          </tr>
-      </table>
     </div>
-</div>  
+    
+    <div id="homePage">
+       
+        <paper-toolbar id="top-toolbar">
+            <!--<h1><element-title>FRIGO</element-title></h1>-->
+                <h1><a href=/home.html ><img src="/IMAGES/logo_frigo_small.png" alt="logo" /></a></h1>
+                <!--^j'ai rajouté un lien vers la page d'acceuil a partir du h1 (lien a changer ulterieurement)-->
+    
+                <google-signin client-id="590129464922-hi0of8i77tujpkfputuhijtbvf9fkbg9.apps.googleusercontent.com" height="small" labelSignin="Connexion" scopes="https://www.googleapis.com/auth/drive"></google-signin>
+    
+        </paper-toolbar>
+        <template is="dom-bind">
+            
+           
+    				<!--<paper-tabs selected="{{selected}}" noink>
+                        <paper-tab><i class="fa fa-bars"></i>&nbspMa liste d'épicerie</paper-tab>
+                        <paper-tab><i class="fa fa-history"></i>&nbspMon historique</paper-tab>
+                        <paper-tab><i class="fa fa-money"></i>&nbspRabais</paper-tab>
+                        <paper-tab><i class="fa fa-cog"></i>&nbspParamètres</paper-tab>
+                    </paper-tabs>-->
             
             
-        
+        <!--Responsive Paper-Tab-->        
+        <div class="siteWrapper"> 
+            <div class="header-wrap margin-wrap">
+              <table width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                      <td style="width: 100%; padding-right:10px;">
+                          <paper-tabs selected="{{selected}}" noink role="tablist">
+                              <paper-tab role="tab" class=""><core-field><i class="fa fa-home"></i><label>&nbsp Home</label></core-field></paper-tab>
+        <!--                      <paper-tab role="tab" class=""><core-field><i class="fa fa-history"></i><label>&nbsp Mon historique</label></core-field></paper-tab>
+        -->                      <paper-tab role="tab" class=""><core-field><i class="fa fa-bars"></i><label>&nbsp Mes Listes</label></core-field></paper-tab>
+                              <paper-tab role="tab" class=""><core-field><i class="fa fa-cog"></i><label>&nbsp Paramètres</label></core-field></paper-tab>
+                          </paper-tabs>
+                      </td>
+                  </tr>
+              </table>
+            </div>
+        </div>  
+                
+                
+            
 
         <div class="container">
+            
+            <!--message de bienvenue-->
+            <div class="bienvenue">
+                <p><center><b>Bienvenue sur Frigo.</b></center></p> 
+                
+                <p><center>Pour commencer connectez vous 
+                 à l'aide de votre compte gmail ou à l'aide du code généré par votre scanner</center></p>
+                
+             </div>
             
             <iron-pages selected="{{selected}}">
                 
                 <div id="epicerie">
                     
-                    <!--message de bienvenue-->
-                    <div class="bienvenue">
-                        <p><center><b>Bienvenue sur Frigo.</b></center></p> 
-                     </div>
-                     
-                    <div class= "sousTexte"> <p><center>Pour commencer connectez vous 
-                         à l'aide de votre compte gmail ou à l'aide du code généré par votre scanner</center></p>
-                    </div>
+                    
                     
                     <element-epicerie>
                         <span>Salade a Claudette:</span>
@@ -203,6 +210,9 @@
        </div>
     </template>
      
+        
+    </div>
+    
     
     
     <script src="bower_components/webcomponentsjs/webcomponents.js"></script>

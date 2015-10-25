@@ -256,3 +256,12 @@ google-signin {
 	}
 
 }
+.bienvenue{
+	display:none;
+}
+#bienvenuePage{
+	
+}
+#homePage{
+	display:none;
+}
