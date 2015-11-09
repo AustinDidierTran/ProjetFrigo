@@ -1,12 +1,32 @@
 h1 {
-    margin: auto;
+  margin-left: auto; 
+  margin-right: auto;
+  
+}
 
-    
+@media (max-width: 500px) {
+	/*h1{
+		margin-left:2%;
+	}*/
+	img{
+		max-width: 80%;
+		height: auto;
+	}
+}
+
+.Logobienvenue{
+	margin-top: 9px;
+}
+@media (max-width: 600px) {
+	.Logobienvenue{
+		max-width: 80%;
+		height: auto;
+	}
 }
 
 body {
    
-    background:rgb(52,68,119);
+    background:rgb(3,6,46);
 
   /* background-color: #cccccc;*/
 }
@@ -18,12 +38,41 @@ body {
 .bienvenue{ /*Message d'intro au site*/
     font-family: 'Calibri Light', sans-serif;
     font-size: 50px;
-    color: white;
+    color:#E0E0D1;
+    text-shadow: 2px 2px 4px #000000;
 }
 .sousTexte{
     font-size: 20px;
     color: White;
 }
+
+/* propriétés du collapse button */
+.heading {
+padding: 10px 15px;
+margin-top: 10px;
+background-color: #f3f3f3;
+border: 1px solid #dedede;
+font-size: 18px;
+font-weight:bold;
+cursor: pointer;
+-webkit-tap-highlight-color: rgba(0,0,0,0);
+width: 100%;
+text-align: left;
+}
+.content {
+        padding: 15px;
+        border: 1px solid #dedede;
+        border-top: none;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        font-size: 18px;
+        color: black;
+        background-color:#f3f3f3;
+}
+
+/*Fin des propriétés des collapse button */
+
+
 paper-tabs{
     padding-bottom:0px;
 }
@@ -43,7 +92,7 @@ paper-material {
         box-sizing: border-box;
         margin: 16px;
         padding: 16px;
-        border-radius: 20px;
+        /*border-radius: 20px;*/
         font-family: 'Calibri', sans-serif;
         font-size: 23px;
        /* opacity: 0.5;
@@ -72,12 +121,12 @@ paper-material {
     
     color:red;
 }
-google-signin {
-    position:absolute;
-    top:16px;
-    right:12px;
-}
 
+
+.collapse-content {
+                    padding: 15px;
+                    border: 1px solid #dedede;
+                  }
 
 @media (max-width: 700px) 
 {
@@ -238,7 +287,6 @@ google-signin {
 /* If you don't want the footer to be responsive, remove these media queries */
 
 @media (max-width: 880px) {
-
 	.footer-distributed{
 		font: bold 14px sans-serif;
 	}
@@ -255,16 +303,18 @@ google-signin {
 	.footer-distributed .footer-center i{
 		margin-left: 0;
 	}
-
 }
+
+
 #bienvenuePage{
 	 background: white;
      
      min-width: 100%;
      min-height:700px;
      
-     background-image: url("/IMAGES/supermarche.jpg"); /*image provisoire*/
-    
+     /*background-image: url("/IMAGES/supermarche.jpg"); image provisoire*/
+     background-color: rgb(3,6,46);
+     
      background-size: 100% 100%;
      background-repeat: no-repeat;
      
@@ -273,12 +323,12 @@ google-signin {
 .bienvenueText{ /*Message d'intro au site*/
     font-family: 'Calibri Light', sans-serif;
     font-size: 60px;
-    color: black/*#669900*/;
- 
+    color: white/*#669900*/;
 }
+
 .sousTexte{
     font-size: 20px;
-    color:black;
+    color:white;
 }
 #homePage{
 	display:none;

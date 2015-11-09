@@ -6,14 +6,15 @@
 <dom-module id="element-epicerie">
 
   <style>
+  
   </style>
 
   <template>
 
     <paper-material elevation="2">
       <content></content>
+      <span>{{title}}</span>
     </paper-material>
-      
   </template>
 </dom-module>
 
@@ -22,6 +23,7 @@
   Polymer({
     is: 'element-epicerie',
     properties: {
+      title: String
     }
   });
 

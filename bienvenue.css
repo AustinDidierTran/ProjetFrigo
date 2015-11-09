@@ -3,17 +3,22 @@
    margin-top: 20px;
 }
 .container {
-     background: white;
+    background: white;
      
-     min-width: 100%;
-     min-height:700px;
+    min-width: 100%;
+    min-height:700px;
      
-     background-image: url("/IMAGES/supermarche.jpg"); /*image provisoire*/
-    
-     background-size: 100% 100%;
-     background-repeat: no-repeat;
-    
-   
+    background-color: rgb(3,6,46);
+    /*background-image: url("/IMAGES/supermarche.jpg"); image provisoire*/
+	background-repeat: no-repeat;
+	background-size: auto;
+	height: 258px;
+}
+
+@media (max-width: 767px) {
+	.container {
+	background-size: cover;
+	}
 }
 
 .bienvenue{ /*Message d'intro au site*/
@@ -148,6 +153,8 @@
 
 .footer-distributed .footer-company-about span{
 	display: block;
+	
+	
 	color:  #ffffff;
 	font-size: 14px;
 	font-weight: bold;

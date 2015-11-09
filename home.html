@@ -19,6 +19,11 @@
     <!-- Iron Element imports -->
 
     <link rel="import" href="bower_components/iron-pages/iron-pages.html">
+    <link rel="import" href="bower_components/iron-list/iron-list.html">
+    <link rel="import" href="bower_components/iron-ajax/iron-ajax.html">
+    <link rel="import" href="bower_components/iron-collapse/iron-collapse.html">
+
+
     <!--<link rel="import" href="http://www.polymer-project.org/0.5/components/core-icon/core-icon.html">-->
     
     <!-- Google Web Component imports -->
@@ -28,6 +33,7 @@
     <!-- Custom Element imports -->
     
     <link rel="import" href="frigo_components/element-epicerie.html">
+    <link rel="import" href="frigo_components/liste-epicerie.html">
 
     <!-- Stylesheets --> 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
@@ -36,7 +42,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700">
     
-    
+ 
 </head>
 <body>
     
@@ -58,107 +64,115 @@
          
            <div class= "Logobienvenue">
                  <center><img src="/IMAGES/logo_frigo_big.png" alt="logo"/></center>
-                 
-                   
            </div>
            
-              <div class="bienvenueText">
-                        <p><center><b>Bienvenue sur Frigo.</b></center></p> 
-                </div>
+            <div class="bienvenueText">
+                <p><center><b>Bienvenue sur Frigo.</b></center></p> 
+            </div>
                      
-                <div class= "sousTexte"> <p><center>Pour commencer connectez vous 
-                    à l'aide de votre compte gmail</center></p>
-                     <center><google-signin client-id="590129464922-hi0of8i77tujpkfputuhijtbvf9fkbg9.apps.googleusercontent.com" 
-                    height="small" labelSignin="Connexion" scopes="https://www.googleapis.com/auth/drive"></google-signin></center>
-                </div>
-                       
+            <div class= "sousTexte"> <p><center>Pour commencer, connectez-vous à l'aide de votre compte Google</center></p>
+                <center><google-signin client-id="590129464922-hi0of8i77tujpkfputuhijtbvf9fkbg9.apps.googleusercontent.com" 
+                height="small" labelSignin="Connexion" scopes="https://www.googleapis.com/auth/drive" style="margin-top:25px;"></google-signin></center>
+            </div>
+             
+               <!--<center><footer>About Frigo(C)</footer></center>-->
+                      
                  
-    </div>
+        </div>
     
     <!-- HOME PAGE -->
-    
+        
     <div id="homePage">
        
-        <paper-toolbar id="top-toolbar">
-            <!--<h1><element-title>FRIGO</element-title></h1>-->
-                <h1><a href=/home.html ><img src="/IMAGES/logo_frigo_small.png" alt="logo" /></a></h1>
-                <!--^j'ai rajouté un lien vers la page d'acceuil a partir du h1 (lien a changer ulterieurement)-->
-    
-                <google-signin client-id="590129464922-hi0of8i77tujpkfputuhijtbvf9fkbg9.apps.googleusercontent.com" height="small" labelSignin="Connexion" scopes="https://www.googleapis.com/auth/drive"></google-signin>
-    
-        </paper-toolbar>
+       <div style="background: rgb(3,6,46);">
+            <paper-toolbar id="top-toolbar">
+                <h1><img src="/IMAGES/logo_frigo_small.png" alt="logo" /></h1>
+                <!--<google-signin client-id="590129464922-hi0of8i77tujpkfputuhijtbvf9fkbg9.apps.googleusercontent.com" height="small" labelSignin="Connexion" scopes="https://www.googleapis.com/auth/drive"></google-signin>-->
+            </paper-toolbar>
             
-        <!--Responsive Paper-Tab-->        
-        <div class="siteWrapper"> 
-            <div class="header-wrap margin-wrap">
-              <table width="100%" cellpadding="0" cellspacing="0">
-                  <tr>
-                      <td style="width: 100%;">
-                          <paper-tabs selected="{{selected}}" noink role="tablist">
-                              <paper-tab role="tab" class=""><core-field><i class="fa fa-home"></i><label>&nbsp Accueil</label></core-field></paper-tab>
-        <!--                      <paper-tab role="tab" class=""><core-field><i class="fa fa-history"></i><label>&nbsp Mon historique</label></core-field></paper-tab>
-        -->                      <paper-tab role="tab" class=""><core-field><i class="fa fa-bars"></i><label>&nbsp Mes Listes</label></core-field></paper-tab>
-                              <paper-tab role="tab" class="flex"><i class="fa fa-cog"></i><label>&nbsp Paramètres</label></paper-tab>
-                          </paper-tabs>
-                      </td>
-                  </tr>
-              </table>
-            </div>
-        </div>  
-                
-                
+            <!--Responsive Paper-Tab-->        
+            <div class="siteWrapper" style="margin-top:2%;"> 
+                <div class="header-wrap margin-wrap">
+                  <table width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                          <td style="width: 100%;">
+                              <paper-tabs selected="{{selected}}" noink role="tablist">
+                                  <paper-tab role="tab" class=""><core-field><i class="fa fa-home"></i><label>&nbsp Accueil</label></core-field></paper-tab>
+                                  <paper-tab role="tab" class=""><core-field><i class="fa fa-bars"></i><label>&nbsp Mes Listes</label></core-field></paper-tab>
+                                  <paper-tab role="tab" class=""><core-field><i class="fa fa-cog"></i><label>&nbsp Paramètres</label></core-field></paper-tab>
+                              </paper-tabs>
+                          </td>
+                      </tr>
+                  </table>
+                </div>
+            </div>  
+        </div>      
             
 
         <div class="container">
             
-            <!--message de bienvenue-->
-            <div class="bienvenue">
-                <p><center><b>Bienvenue sur votre portail</b></center></p> 
-                
-             
-                
-             </div>
-            
+
             <iron-pages selected="{{selected}}">
                 
-                <div id="epicerie">
+            <div id="epicerie">
+                     <!--message de bienvenue-->
+                <div class="bienvenue">
+                <p><center><b>Bienvenue sur votre portail</b></center></p> 
+                
+                </div>
+                    <liste-epicerie></liste-epicerie>
+                    <element-epicerie title="Salade à Claudette"></element-epicerie>
+                    <element-epicerie title="Pinte de pain"></element-epicerie>
+                    <element-epicerie title="Pinte de jus expiré"></element-epicerie>
+                </div>
+                
+                <div id="Historique">
+                  <!--Test de la list -->
+                 
+                <button class="heading" aria-expanded$="[[isExpanded(opened1)]]" aria-controls="collapse1" onclick="toggle('#collapse1')">Votre Liste du 8/11/15 </button>
+                
+                    <iron-collapse id="collapse1" tabindex="0" opened="{{opened1}}">
+                      <div class="content">
+                        <div>Patate de Walmart</div>
+                      </div>
+                    </iron-collapse>
+                
+                <button class="heading" aria-expanded$="[[isExpanded(opened2)]]" aria-controls="collapse2" onclick="toggle('#collapse2')">Votre Liste de 12/10/15</button>
+                
+                    <iron-collapse id="collapse2" tabindex="0" opened="{{opened2}}">
+                      <div class="content">
+                        <div>Lait Québon 2L</div>
+                        <div>Courgette violette</div>
+                      </div>
+                    </iron-collapse>
                     
-    
-                    <element-epicerie>
-                        <span>Salade a Claudette:</span>
-                    </element-epicerie>
-                    <element-epicerie>
-                        <span>Pinte de pain:</span>
-                    </element-epicerie>
-                    <element-epicerie>
-                        <span>Pinte de jus expiré date:</span>
-                        <p>Salut</p>
-                    </element-epicerie>
+                     <button class="heading" aria-expanded$="[[isExpanded(opened3)]]" aria-controls="collapse3" onclick="toggle('#collapse3')">Votre Liste de 5/10/15</button>
+                
+                    <iron-collapse id="collapse3" tabindex="0" opened="{{opened3}}">
+                      <div class="content">
+                        <div>Caillou Roche</div>
+                        <div>Courgette Radioactive sans sauce</div>
+                      </div>
+                    </iron-collapse>
+                    
+                <script> 
+                      function toggle(selector) {
+                        document.querySelector(selector).toggle();
+                      }
+                </script>
+           
+                                    
+                <!-- Fin test de list -->
+                
                 </div>
                 
-                <div id="historique">
-                    <element-epicerie>
-                        <span>Bouteille d'eau:</span>
-                    </element-epicerie>
-                    <element-epicerie>
-                        <span>Jus de pomme:</span>
-                    </element-epicerie>
-                    <element-epicerie>
-                        <span>Crème glacée:</span>
-                    </element-epicerie>
-                </div>
-                
-                
-                <div id="parametre">
-                    <element-epicerie>
-                        <span>Compte</span>
-                    </element-epicerie>
-                    <element-epicerie>
-                        <span>Scanner</span>
-                    </element-epicerie>
-                    <element-epicerie>
-                        <span>options</span>
-                    </element-epicerie>
+                <div id="Parametre">
+                    <element-epicerie title="Compte"></element-epicerie>
+                    <element-epicerie title="Scanner"></element-epicerie>
+                    <center>
+                        <google-signin client-id="590129464922-hi0of8i77tujpkfputuhijtbvf9fkbg9.apps.googleusercontent.com" 
+                        height="small" labelSignin="Connexion" scopes="https://www.googleapis.com/auth/drive" style="margin-top:20px;"></google-signin>
+                    </center>
                 </div>
                 
                 
@@ -189,7 +203,7 @@
 				<p class="footer-company-about">
 					<span>À propos</span>
 					Frigo est une application crée par le groupe de projet du même nom,
-					à l'université de sherbrooke en 2015
+					à l'université de Sherbrooke en 2015
 				</p>
 
 				<div class="footer-icons">
@@ -202,8 +216,7 @@
 		</footer>
        </div>
     
-     
-        
+  
     </div>
     </template>
     
@@ -211,6 +224,7 @@
     <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
     <script src="node_modules/jquery/dist/jquery.js"></script>
     <script src="frigo.js"></script>
+   
     
 </body>
 </html>
