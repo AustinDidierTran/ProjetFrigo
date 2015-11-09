@@ -2,8 +2,8 @@
 
 <link rel="import" href="/bower_components/polymer/polymer.html">
 <link rel="import" href="/bower_components/iron-collapse/iron-collapse.html">
-<link rel="import" href="/frigo_components/element-epicerie/element-epicerie.html">
-
+<link rel="import" href="/frigo_components/element-epicerie.html">
+<link rel="import" href="/bower_components/paper-material/paper-material.html">
 
 
 <dom-module id="element-scanner">
@@ -21,18 +21,30 @@
        font-size:16px;
        color:black;
     }
+    
+    button{
+        border-style: solid;
+       border-width:1px;
+       border-color: rgb(118,112,112);
+    }
   </style>
 
   <template>
       
-        <button class="heading" aria-expanded$="[[isExpanded(opened15)]]" aria-controls="collapse15" onclick="toggle('#collapse15')">Se connecter à un scanner</button>
+        <button class="heading" aria-expanded$="[[isExpanded(opened1500)]]" aria-controls="collapse1500" onclick="toggle('#collapse1500')">
+          <i class="fa fa-barcode"></i>
+          <label>&nbsp Scanner</label>
+          </button>
         
-        <iron-collapse id="collapse15" tabindex="0" opened="{{opened15}}">
+        <iron-collapse id="collapse1500" tabindex="0" opened="{{opened1500}}">
 
-            <template is="dom-repeat" items="{{elements}}">
+            <template is="dom-repeat" items="{{scanners}}">
               <paper-material>
                   
-                  <scan>t</scan>
+                  <span>{{item.name}}</span>
+                  
+                  <!--<paper-button>Se connecter</paper-button>-->
+                  
               </paper-material>
             </template>
         </iron-collapse>
@@ -44,15 +56,18 @@
 
 <script>
   function toggle(selector) {
-    document.querySelector(selector).toggle()
+    document.querySelector(selector).toggle();
   }
   Polymer({
     is: 'element-scanner',
     ready: function() {
-      this.elements = [
+      this.scanners = [
           {
-            scanner: "Scanner à bob"
+            name: "Scanner à bob"
           },
+          {
+            name: "Scanner à rob"
+          }
         ];
     },
     properties: {

@@ -3,18 +3,21 @@
 
 <link rel="import" href="/bower_components/polymer/polymer.html">
 
-<dom-module id="element-list">
+<dom-module id="element-section">
 
   <style>
   
-    .Bloc{
-    width:500px;
+    .hello{
+          display: inline-block;
+        
+          background: rgb(3,6,46);
+          width:100%;
     }
     
   </style>
 
   <template>
-    <paper-material elevation="2" class="Bloc">
+    <paper-material elevation="2" class="hello">
       <content></content>
       <span>{{title}}</span>
     </paper-material>
@@ -25,7 +28,7 @@
 <script>
 
   Polymer({
-    is: 'element-liste',
+    is: 'element-section',
     properties: {
       title: String
     }

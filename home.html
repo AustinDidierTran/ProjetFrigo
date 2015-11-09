@@ -15,6 +15,8 @@
     <link rel="import" href="bower_components/paper-fab/paper-fab.html">
     <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
     <link rel="import" href="bower_components/paper-material/paper-material.html">
+    <link rel="import" href="bower_components/paper-item/paper-item.html">
+
 
     <!-- Iron Element imports -->
 
@@ -35,7 +37,8 @@
     <link rel="import" href="frigo_components/element-epicerie.html">
     <link rel="import" href="frigo_components/liste-epicerie.html">
     <link rel="import" href="frigo_components/element-scanner.html">
-    
+    <link rel="import" href="frigo_components/element-section.html">
+
     <link rel="import" href="frigo_components/user-information.html">
 
     <!-- Stylesheets --> 
@@ -145,17 +148,20 @@
                 
                 <div id="Historique">
                          
-                              <element-epicerie>Listes</element-epicerie>
+                              <element-section> <i class="fa fa-list"></i><label>&nbsp Liste actuelle</label></element-section>
                               <liste-epicerie></liste-epicerie>
-                              <element-scanner></element-scanner>
+                              
+                              <element-section> <i class="fa fa-history"></i><label>&nbsp Historique des Listes</label></element-section>
+
                          
                         <button class="heading" aria-expanded$="[[isExpanded(opened1)]]" aria-controls="collapse1" onclick="toggle('#collapse1')">Votre Liste du 8/11/15 </button>
                         
                             <iron-collapse id="collapse1" tabindex="0" opened="{{opened1}}">
                               <div class="content">
-                                <div>Patate de Walmart</div>
+                                <div><paper-item>Item</paper-item> </div>
                               </div>
                             </iron-collapse>
+                            
                         
                         <button class="heading" aria-expanded$="[[isExpanded(opened2)]]" aria-controls="collapse2" onclick="toggle('#collapse2')">Votre Liste de 12/10/15</button>
                         
@@ -166,6 +172,8 @@
                               </div>
                             </iron-collapse>
                             
+                             
+                             
                              <button class="heading" aria-expanded$="[[isExpanded(opened3)]]" aria-controls="collapse3" onclick="toggle('#collapse3')">Votre Liste de 5/10/15</button>
                         
                             <iron-collapse id="collapse3" tabindex="0" opened="{{opened3}}">
@@ -185,8 +193,9 @@
                 
                 <div id="Parametre">
                         <user-information></user-information>
-                        <element-epicerie title="Compte"></element-epicerie>
-                        <element-epicerie title="Scanner"></element-epicerie>
+                        <!--<element-epicerie title="Compte"></element-epicerie>-->
+                        <element-scanner></element-scanner>
+                        
                         <center>
                             <google-signin client-id="590129464922-hi0of8i77tujpkfputuhijtbvf9fkbg9.apps.googleusercontent.com" 
                             height="small" labelSignin="Connexion" scopes="https://www.googleapis.com/auth/drive" style="margin-top:20px;"></google-signin>

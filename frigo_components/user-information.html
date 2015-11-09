@@ -4,6 +4,7 @@
 <link rel="import" href="/bower_components/polymer/polymer.html">
 <link rel="import" href="/bower_components/iron-form/iron-form.html">
 
+<link rel="import" href="/bower_components/paper-button/paper-button.html">
 <link rel="import" href="/bower_components/paper-input/paper-input.html">
 <link rel="import" href="/bower_components/paper-material/paper-material.html">
 
@@ -17,8 +18,24 @@
           margin-left:0;
           margin-top:0px;
           margin-bottom:0px;
-          
-          
+          border-style: solid;
+          border-width:1px;
+          border-color: rgb(118,112,112);
+      }
+    
+    button{
+      border-style: solid;
+      border-width:1px;
+      border-color: rgb(118,112,112);
+    }
+      
+      
+      
+      #submitButton{
+          background-color:green;
+      }
+      #resetButton{
+          background-color:red;
       }
       :root {
         /* Label and underline color when the input is not focused */
@@ -39,7 +56,7 @@
   </style>
 
   <template>
-        <button class="heading" aria-expanded$="[[isExpanded(usercollapse)]]" aria-controls="usercollapse" onclick="toggle('#usercollapse')">Votre Compte</button>
+        <button class="heading" aria-expanded$="[[isExpanded(usercollapse)]]" aria-controls="usercollapse" onclick="toggle('#usercollapse')"><i class="fa fa-user"></i><label>&nbsp Votre Compte</label></button>
         
         <iron-collapse id="usercollapse" tabindex="0" opened="{{usercollapse}}">
     
@@ -49,10 +66,6 @@
               <paper-input name="lastname" label="Last Name" required></paper-input>
               <paper-input name="username" label="Username" required></paper-input>
               <br>
-              <paper-button raised
-                  onclick="submitHandler(event)">Submit</paper-button>
-              <paper-button raised
-                  onclick="resetHandler(event)">Reset</paper-button>
             </form>
           </paper-material>
 
