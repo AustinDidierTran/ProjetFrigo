@@ -1,0 +1,79 @@
+
+<script src="/bower_components/webcomponentsjs/webcomponents.js"></script>
+
+<link rel="import" href="/bower_components/polymer/polymer.html">
+<link rel="import" href="/bower_components/iron-form/iron-form.html">
+
+<link rel="import" href="/bower_components/paper-input/paper-input.html">
+<link rel="import" href="/bower_components/paper-material/paper-material.html">
+
+<dom-module id="user-information">
+
+  <style>
+  
+      paper-material{
+          background-color:white;
+          width:100%;
+          margin-left:0;
+          margin-top:0px;
+          margin-bottom:0px;
+          
+          
+      }
+      :root {
+        /* Label and underline color when the input is not focused */
+        --paper-input-container-color: black;
+
+        /* Label and underline color when the input is focused */
+        --paper-input-container-focus-color: green;
+
+        /* Label and underline color when the input is invalid */
+        --paper-input-container-invalid-color: red;
+
+        /* Input foreground color */
+        --paper-input-container-input-color: black;
+        
+        
+}
+    
+  </style>
+
+  <template>
+        <button class="heading" aria-expanded$="[[isExpanded(usercollapse)]]" aria-controls="usercollapse" onclick="toggle('#usercollapse')">Votre Compte</button>
+        
+        <iron-collapse id="usercollapse" tabindex="0" opened="{{usercollapse}}">
+    
+          <paper-material>
+              <form is="iron-form" id="formGet" method="get" action="/">
+              <paper-input name="firstname" label="First Name" required></paper-input>
+              <paper-input name="lastname" label="Last Name" required></paper-input>
+              <paper-input name="username" label="Username" required></paper-input>
+              <br>
+              <paper-button raised
+                  onclick="submitHandler(event)">Submit</paper-button>
+              <paper-button raised
+                  onclick="resetHandler(event)">Reset</paper-button>
+            </form>
+          </paper-material>
+
+        </iron-collapse>
+
+      
+          
+      <content></content>
+    
+  </template>
+</dom-module>
+
+<script>
+
+    
+
+  Polymer({
+    is: 'user-information',
+    properties: {
+      title: String
+    }
+  });
+
+</script>

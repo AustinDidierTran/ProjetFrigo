@@ -14,9 +14,6 @@ h1 {
 	}
 }
 
-.Logobienvenue{
-	margin-top: 9px;
-}
 @media (max-width: 600px) {
 	.Logobienvenue{
 		max-width: 80%;
@@ -25,10 +22,9 @@ h1 {
 }
 
 body {
-   
-    background:rgb(3,6,46);
 
-  /* background-color: #cccccc;*/
+
+  background-color: rgb(52,68,119);
 }
 
 #top-toolbar {
@@ -38,14 +34,16 @@ body {
 .bienvenue{ /*Message d'intro au site*/
     font-family: 'Calibri Light', sans-serif;
     font-size: 50px;
-    color:#E0E0D1;
+    color:white;
     text-shadow: 2px 2px 4px #000000;
 }
 .sousTexte{
     font-size: 20px;
     color: White;
 }
-
+.Message{
+	font-size: 30px;
+}
 /* propriétés du collapse button */
 .heading {
 padding: 10px 15px;

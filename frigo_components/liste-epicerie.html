@@ -2,53 +2,89 @@
 
 <link rel="import" href="/bower_components/polymer/polymer.html">
 <link rel="import" href="/bower_components/iron-collapse/iron-collapse.html">
+<link rel="import" href="/frigo_components/element-epicerie.html">
+
 
 
 <dom-module id="liste-epicerie">
 
   <style>
+    paper-material{
+       background-color:white;
+       margin-top:0px;
+       margin-bottom:0px;
+       border-style: solid;
+       border-width:1px;
+       border-color: rgb(118,112,112);
+       width:100%;
+       margin-left:0;
+       font-size:16px;
+       color:black;
+    }
   </style>
 
   <template>
-      <content>
+      
+        <button class="heading" aria-expanded$="[[isExpanded(opened14)]]" aria-controls="collapse14" onclick="toggle('#collapse14')">Votre Liste du 8/11/15</button>
         
-        <button class="heading" aria-expanded$="[[isExpanded(opened1)]]" aria-controls="collapse1" onclick="toggle('#collapse1')">Votre Liste du 8/11/15</button>
+        <iron-collapse id="collapse14" tabindex="0" opened="{{opened14}}">
+
+            <template is="dom-repeat" items="{{elements}}">
+              <paper-material>
                 
-                    <iron-collapse id="collapse1" tabindex="0" opened="{{opened1}}">
-                      <template is="dom-repeat" items="{{elements}}">
-                        <span>{{item.name}}</span>
-                        
-                      </template>
-                    </iron-collapse>
+                <div class="row">
+                  
+                  <div class="col-sm-7">
+                    <span>{{item.name}}</span>
+                  </div>
+                  
+                  <div class="col-sm-3">
+                    <span>Date du scan:</span>
+                    <span>{{item.date}}</span>
+                  </div>
+                  
+                  <div  align="right" class="col-sm-2">
+                    <span>Quantité:</span>
+                    <span>{{item.quantity}}</span>
+                  </div>
                 
-                <script> 
-                      function toggle(selector) {
-                        document.querySelector(selector).toggle();
-                      }
-                </script>
-        
+                </div>
+                
+              </paper-material>
+              
+             <!-- <element-epicerie title="{{item.name}}"></element-epicerie>-->
+
+            </template>
+        </iron-collapse>
+                
+      <content> 
       </content>
   </template>
 </dom-module>
 
 <script>
-
+  function toggle(selector) {
+    document.querySelector(selector).toggle()
+  }
   Polymer({
     is: 'liste-epicerie',
+    ready: function() {
+      this.elements = [
+          {
+            name:"Pinte de lait",
+            quantity: "1",
+            date: "11/22/2015"
+          },
+          {
+            name:"Pinte de laid",
+            quantity: "2",
+            date: "11/22/2015"
+          }
+        
+        ];
+    },
     properties: {
-        ready: function() {
-          this.elements = [
-              {
-                name:"Pinte de lait",
-                quantity: 1
-              },
-              {
-                name:"Pinte de lait",
-                quantity: 2
-              }
-            
-            ]
-        }
+        
       }
       
   });

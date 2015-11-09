@@ -34,6 +34,9 @@
     
     <link rel="import" href="frigo_components/element-epicerie.html">
     <link rel="import" href="frigo_components/liste-epicerie.html">
+    <link rel="import" href="frigo_components/element-scanner.html">
+    
+    <link rel="import" href="frigo_components/user-information.html">
 
     <!-- Stylesheets --> 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
@@ -78,7 +81,7 @@
                <!--<center><footer>About Frigo(C)</footer></center>-->
                       
                  
-        </div>
+    </div>
     
     <!-- HOME PAGE -->
         
@@ -114,70 +117,86 @@
 
             <iron-pages selected="{{selected}}">
                 
-            <div id="epicerie">
-                     <!--message de bienvenue-->
-                <div class="bienvenue">
-                <p><center><b>Bienvenue sur votre portail</b></center></p> 
-                
-                </div>
-                    <liste-epicerie></liste-epicerie>
-                    <element-epicerie title="Salade à Claudette"></element-epicerie>
-                    <element-epicerie title="Pinte de pain"></element-epicerie>
-                    <element-epicerie title="Pinte de jus expiré"></element-epicerie>
+                <div id="epicerie">
+                                 <!--message de bienvenue-->
+                            <div class="bienvenue">
+                            <p><center><b>Bienvenue sur votre portail</b></center></p> 
+                            <div class=Message><center> Frigo est une application créée par des étudiants, pour VOUS. Grâce au système de listes d'épicerie
+                            vous êtes désormais capable de consulter vos listes depuis n'importe quel appareil connecté.<br> Si vous ne savez pas 
+                            par où commencer, suivez le guide ci-dessous !</br></center> </div>
+                            
+                            </div>
+                            
+                                <element-epicerie>ETAPE #1:<br> Pour commencer, scanner les produits que vous desirez 
+                                ajouter dans votre liste de course du jour.
+                                </br> </element-epicerie>
+                                <element-epicerie></element-epicerie>
+                                 <element-epicerie>ETAPE #2:<br> Ensuite,Allez faire les courses
+                                </br> </element-epicerie>
+                                <element-epicerie>IMAGE2</element-epicerie>
+                                 <element-epicerie>ETAPE #3:<br> ...Profit ??
+                                </br> </element-epicerie>
+                                <element-epicerie>IMAGE3</element-epicerie>
+                                
+                        
+                                
+                    
                 </div>
                 
                 <div id="Historique">
-                  <!--Test de la list -->
-                 
-                <button class="heading" aria-expanded$="[[isExpanded(opened1)]]" aria-controls="collapse1" onclick="toggle('#collapse1')">Votre Liste du 8/11/15 </button>
-                
-                    <iron-collapse id="collapse1" tabindex="0" opened="{{opened1}}">
-                      <div class="content">
-                        <div>Patate de Walmart</div>
-                      </div>
-                    </iron-collapse>
-                
-                <button class="heading" aria-expanded$="[[isExpanded(opened2)]]" aria-controls="collapse2" onclick="toggle('#collapse2')">Votre Liste de 12/10/15</button>
-                
-                    <iron-collapse id="collapse2" tabindex="0" opened="{{opened2}}">
-                      <div class="content">
-                        <div>Lait Québon 2L</div>
-                        <div>Courgette violette</div>
-                      </div>
-                    </iron-collapse>
-                    
-                     <button class="heading" aria-expanded$="[[isExpanded(opened3)]]" aria-controls="collapse3" onclick="toggle('#collapse3')">Votre Liste de 5/10/15</button>
-                
-                    <iron-collapse id="collapse3" tabindex="0" opened="{{opened3}}">
-                      <div class="content">
-                        <div>Caillou Roche</div>
-                        <div>Courgette Radioactive sans sauce</div>
-                      </div>
-                    </iron-collapse>
-                    
-                <script> 
-                      function toggle(selector) {
-                        document.querySelector(selector).toggle();
-                      }
-                </script>
-           
-                                    
-                <!-- Fin test de list -->
-                
+                         
+                              <element-epicerie>Listes</element-epicerie>
+                              <liste-epicerie></liste-epicerie>
+                              <element-scanner></element-scanner>
+                         
+                        <button class="heading" aria-expanded$="[[isExpanded(opened1)]]" aria-controls="collapse1" onclick="toggle('#collapse1')">Votre Liste du 8/11/15 </button>
+                        
+                            <iron-collapse id="collapse1" tabindex="0" opened="{{opened1}}">
+                              <div class="content">
+                                <div>Patate de Walmart</div>
+                              </div>
+                            </iron-collapse>
+                        
+                        <button class="heading" aria-expanded$="[[isExpanded(opened2)]]" aria-controls="collapse2" onclick="toggle('#collapse2')">Votre Liste de 12/10/15</button>
+                        
+                            <iron-collapse id="collapse2" tabindex="0" opened="{{opened2}}">
+                              <div class="content">
+                                <div>Lait Québon 2L</div>
+                                <div>Courgette violette</div>
+                              </div>
+                            </iron-collapse>
+                            
+                             <button class="heading" aria-expanded$="[[isExpanded(opened3)]]" aria-controls="collapse3" onclick="toggle('#collapse3')">Votre Liste de 5/10/15</button>
+                        
+                            <iron-collapse id="collapse3" tabindex="0" opened="{{opened3}}">
+                              <div class="content">
+                                <div>Caillou Roche</div>
+                                <div>Courgette Radioactive sans sauce</div>
+                              </div>
+                            </iron-collapse>
+                            
+                        <script> 
+                              function toggle(selector) {
+                                document.querySelector(selector).toggle();
+                              }
+                        </script>
                 </div>
                 
+                
                 <div id="Parametre">
-                    <element-epicerie title="Compte"></element-epicerie>
-                    <element-epicerie title="Scanner"></element-epicerie>
-                    <center>
-                        <google-signin client-id="590129464922-hi0of8i77tujpkfputuhijtbvf9fkbg9.apps.googleusercontent.com" 
-                        height="small" labelSignin="Connexion" scopes="https://www.googleapis.com/auth/drive" style="margin-top:20px;"></google-signin>
-                    </center>
+                        <user-information></user-information>
+                        <element-epicerie title="Compte"></element-epicerie>
+                        <element-epicerie title="Scanner"></element-epicerie>
+                        <center>
+                            <google-signin client-id="590129464922-hi0of8i77tujpkfputuhijtbvf9fkbg9.apps.googleusercontent.com" 
+                            height="small" labelSignin="Connexion" scopes="https://www.googleapis.com/auth/drive" style="margin-top:20px;"></google-signin>
+                        </center>
                 </div>
                 
                 
             </iron-pages>
-            <!--code du footer-->
+            
+            <!--code du footer -->
 		<footer class="footer-distributed">
 
 			<div class="footer-left">
@@ -185,7 +204,7 @@
 				<h3>Team<span>Frigo</span></h3>
 
 				<p class="footer-links">
-					<a href="#">Home</a>
+					<a href="/home.html">Accueil</a>
 						·
 					<a href="#">Contact</a>
 				</p>

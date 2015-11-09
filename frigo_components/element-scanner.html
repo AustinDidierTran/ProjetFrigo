@@ -1,0 +1,64 @@
+<script src="/bower_components/webcomponentsjs/webcomponents.js"></script>
+
+<link rel="import" href="/bower_components/polymer/polymer.html">
+<link rel="import" href="/bower_components/iron-collapse/iron-collapse.html">
+<link rel="import" href="/frigo_components/element-epicerie/element-epicerie.html">
+
+
+
+<dom-module id="element-scanner">
+
+  <style>
+    paper-material{
+       background-color:white;
+       margin-top:0px;
+       margin-bottom:0px;
+       border-style: solid;
+       border-width:1px;
+       border-color: rgb(118,112,112);
+       width:100%;
+       margin-left:0;
+       font-size:16px;
+       color:black;
+    }
+  </style>
+
+  <template>
+      
+        <button class="heading" aria-expanded$="[[isExpanded(opened15)]]" aria-controls="collapse15" onclick="toggle('#collapse15')">Se connecter à un scanner</button>
+        
+        <iron-collapse id="collapse15" tabindex="0" opened="{{opened15}}">
+
+            <template is="dom-repeat" items="{{elements}}">
+              <paper-material>
+                  
+                  <scan>t</scan>
+              </paper-material>
+            </template>
+        </iron-collapse>
+                
+      <content> 
+      </content>
+  </template>
+</dom-module>
+
+<script>
+  function toggle(selector) {
+    document.querySelector(selector).toggle()
+  }
+  Polymer({
+    is: 'element-scanner',
+    ready: function() {
+      this.elements = [
+          {
+            scanner: "Scanner à bob"
+          },
+        ];
+    },
+    properties: {
+        
+      }
+      
+  });
+
+</script>
