@@ -36,7 +36,8 @@
                       </div>
                   
                       <div class="col-sm-4" align="right" >
-                          <paper-toggle-button class="Switch">Connecter</paper-toggle-button>
+                          <paper-toggle-button class="Switch"></paper-toggle-button>
+                          <span>{{disabled}}</span>
                       </div>
                   
                   </div>
@@ -52,7 +53,7 @@
 
 <script>
 
-
+  
   function toggle(selector) {
     document.querySelector(selector).toggle();
   }
@@ -60,8 +61,21 @@
     is: 'element-scanner',
     properties: {
         name: String,
-        disabled: Boolean
+        disabled: String
+    },
+    ready: function() {
+      var disabled = this.disabled;
+      setTimeout(function(){
+      console.log(disabled);
+      if(!disabled || disabled == "false"){
+          $("paper-toggle-button").removeAttr("disabled");
       }
+      else{
+          $("paper-toggle-button").prop("disabled", true);
+      }  
+      }, 1000);
+      
+    }
       
   });
 

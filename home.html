@@ -34,11 +34,12 @@
 
     <!-- Custom Element imports -->
     
-    <link rel="import" href="frigo_components/element-epicerie.html">
     <link rel="import" href="frigo_components/liste-epicerie.html">
     <link rel="import" href="frigo_components/liste-scanner.html">
     <link rel="import" href="frigo_components/element-scanner.html">
     <link rel="import" href="frigo_components/element-section.html">
+    <link rel="import" href="frigo_components/element-epicerie.html">
+
 
     <link rel="import" href="frigo_components/user-information.html">
 
@@ -141,7 +142,6 @@
                                  <element-epicerie>ETAPE #3:<br> ...Profit ??
                                 </br> </element-epicerie>
                                 <element-epicerie>IMAGE3</element-epicerie>
-                                
                         
                                 
                     
@@ -149,26 +149,28 @@
                 
                 <div id="Historique">
                          
-                    <element-section> <i class="fa fa-list"></i><label>&nbsp Liste actuelle</label></element-section>
+                    <i class="fa fa-list listTitle"></i><label class="listTitle">&nbsp Liste actuelle</label>
                     <liste-epicerie listid="123"></liste-epicerie>
-                    <element-section> <i class="fa fa-history"></i><label>&nbsp Historique des Listes</label></element-section>
-
+                    <i class="fa fa-history listTitle"></i><label class="listTitle">&nbsp Historique des Listes</label>
+                    <div style="height:400px"></div>
                 </div>
                 
                 <div id="Parametre">
                         <user-information></user-information>
-                        <!--<element-epicerie title="Compte"></element-epicerie>-->
                         <liste-scanner></liste-scanner>
                         
                         <center>
                             <google-signin client-id="590129464922-hi0of8i77tujpkfputuhijtbvf9fkbg9.apps.googleusercontent.com" 
                             height="small" labelSignin="Connexion" scopes="https://www.googleapis.com/auth/drive" style="margin-top:20px;"></google-signin>
                         </center>
+                        <div style="height:400px"></div>
                 </div>
                 
                 
             </iron-pages>
             
+            
+           
             <!--code du footer -->
 		<footer class="footer-distributed">
 
@@ -205,7 +207,8 @@
 
 			</div>
 
-		</footer>
+		</footer> 
+           
        </div>
     
   

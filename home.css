@@ -23,16 +23,28 @@ h1 {
 
 body {
 
-
+	padding-bottom:400px;
  /* background-color: rgb(52,68,119);*/
- background-image:url("http://www.fixabay.com/images/Abstract/pj4g4x3jja3.png");
- background-size: 100% 100%;
+ background-image:url("/IMAGES/Ambient3.png");
+ /*background-size: 100% 100%;*/
+ -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
      /*background-repeat: repeat;*/
 }
 
 #top-toolbar {
     background: rgb(3,6,46);
 }
+
+.listTitle{
+	color: white;
+	font-size: 20px;
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
 
 .bienvenue{ /*Message d'intro au site*/
     font-family: 'Calibri Light', sans-serif;
@@ -107,10 +119,12 @@ paper-material {
 }
 
 .container {
-
+	position:relative;
+	height:100vh;
+	
     /* min-width: 100%;
      min-height:700px;*/
-      background:rgb(52,68,119,0.2);
+      /*background:rgb(52,68,119,0.2);*/
 
      /*background-image: url("/IMAGES/BackFruits.jpg"); /*image provisoire*/
     
@@ -313,8 +327,9 @@ paper-material {
      min-width: 100%;
      min-height:700px;
      
-     /*background-image: url("/IMAGES/supermarche.jpg"); image provisoire*/
-     background-color: rgb(3,6,46);
+     /*background-image: url("/IMAGES/Ambient3.png"); */
+     background-color: transparent;
+     /*background-color: rgb(3,6,46);*/
      
      background-size: 100% 100%;
      background-repeat: no-repeat;

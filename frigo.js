@@ -23,9 +23,7 @@ var showHome = function(){
 var init = function(){
     document.addEventListener('WebComponentsReady', function () {
         var template = document.querySelector('template[is="dom-bind"]');
-        
-        console.log(template);
-        
+
         template.selected = 0;
         
         template.data = [
