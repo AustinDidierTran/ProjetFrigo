@@ -3,11 +3,13 @@
 <link rel="import" href="/bower_components/polymer/polymer.html">
 <link rel="import" href="/bower_components/iron-collapse/iron-collapse.html">
 <link rel="import" href="/frigo_components/element-epicerie.html">
+<link rel="import" href="/frigo_components/element-scanner.html">
 <link rel="import" href="/bower_components/paper-material/paper-material.html">
 <link rel="import" href="/bower_components/paper-toggle-button/paper-toggle-button.html">
 
 
-<dom-module id="element-scanner">
+
+<dom-module id="liste-scanner">
 
   <style>
     paper-material{
@@ -23,27 +25,28 @@
        color:black;
     }
     
+    .collaspeButton{
+       border-style: solid;
+       border-width:1px;
+       border-color: rgb(118,112,112);
+    }
+    
+    
+     
 </style>
   <template>
       
-     
-              <paper-material>
-                  
-                  <div class="row">
-                      
-                      <div class="col-sm-8">
-                          <span>{{name}}</span>
-                      </div>
-                  
-                      <div class="col-sm-4" align="right" >
-                          <paper-toggle-button class="Switch">Connecter</paper-toggle-button>
-                      </div>
-                  
-                  </div>
-                  
-              </paper-material>
+        <button class="heading collapseButton" aria-expanded$="[[isExpanded(opened1500)]]" aria-controls="collapse1500" onclick="toggle('#collapse1500')">
+          <i class="fa fa-barcode"></i>
+          <label>&nbsp Scanner</label>
+          </button>
+        
+        <iron-collapse id="collapse1500" tabindex="0" opened="{{opened1500}}">
 
+            <template is="dom-repeat" items="{{scanners}}">
+                <element-scanner name="{{item.name}}" disabled=false></element-scanner>
             </template>
+        </iron-collapse>
                 
       <content> 
       </content>
@@ -51,16 +54,22 @@
 </dom-module>
 
 <script>
-
-
   function toggle(selector) {
     document.querySelector(selector).toggle();
   }
   Polymer({
-    is: 'element-scanner',
+    is: 'liste-scanner',
+    ready: function() {
+      this.scanners = [
+          {
+            name: "Scanner à bob"
+          },
+          {
+            name: "Scanner à rob stark"
+          }
+        ];
+    },
     properties: {
-        name: String,
-        disabled: Boolean
       }
       
   });

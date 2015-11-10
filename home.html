@@ -36,6 +36,7 @@
     
     <link rel="import" href="frigo_components/element-epicerie.html">
     <link rel="import" href="frigo_components/liste-epicerie.html">
+    <link rel="import" href="frigo_components/liste-scanner.html">
     <link rel="import" href="frigo_components/element-scanner.html">
     <link rel="import" href="frigo_components/element-section.html">
 
@@ -133,7 +134,7 @@
                                 <element-epicerie>ETAPE #1:<br> Pour commencer, scanner les produits que vous desirez 
                                 ajouter dans votre liste de course du jour.
                                 </br> </element-epicerie>
-                                <element-epicerie></element-epicerie>
+                                <element-epicerie>IMAGE1</element-epicerie>
                                  <element-epicerie>ETAPE #2:<br> Ensuite,Allez faire les courses
                                 </br> </element-epicerie>
                                 <element-epicerie>IMAGE2</element-epicerie>
@@ -148,53 +149,16 @@
                 
                 <div id="Historique">
                          
-                              <element-section> <i class="fa fa-list"></i><label>&nbsp Liste actuelle</label></element-section>
-                              <liste-epicerie></liste-epicerie>
-                              
-                              <element-section> <i class="fa fa-history"></i><label>&nbsp Historique des Listes</label></element-section>
+                    <element-section> <i class="fa fa-list"></i><label>&nbsp Liste actuelle</label></element-section>
+                    <liste-epicerie listid="123"></liste-epicerie>
+                    <element-section> <i class="fa fa-history"></i><label>&nbsp Historique des Listes</label></element-section>
 
-                         
-                        <button class="heading" aria-expanded$="[[isExpanded(opened1)]]" aria-controls="collapse1" onclick="toggle('#collapse1')">Votre Liste du 8/11/15 </button>
-                        
-                            <iron-collapse id="collapse1" tabindex="0" opened="{{opened1}}">
-                              <div class="content">
-                                <div><paper-item>Item</paper-item> </div>
-                              </div>
-                            </iron-collapse>
-                            
-                        
-                        <button class="heading" aria-expanded$="[[isExpanded(opened2)]]" aria-controls="collapse2" onclick="toggle('#collapse2')">Votre Liste de 12/10/15</button>
-                        
-                            <iron-collapse id="collapse2" tabindex="0" opened="{{opened2}}">
-                              <div class="content">
-                                <div>Lait Québon 2L</div>
-                                <div>Courgette violette</div>
-                              </div>
-                            </iron-collapse>
-                            
-                             
-                             
-                             <button class="heading" aria-expanded$="[[isExpanded(opened3)]]" aria-controls="collapse3" onclick="toggle('#collapse3')">Votre Liste de 5/10/15</button>
-                        
-                            <iron-collapse id="collapse3" tabindex="0" opened="{{opened3}}">
-                              <div class="content">
-                                <div>Caillou Roche</div>
-                                <div>Courgette Radioactive sans sauce</div>
-                              </div>
-                            </iron-collapse>
-                            
-                        <script> 
-                              function toggle(selector) {
-                                document.querySelector(selector).toggle();
-                              }
-                        </script>
                 </div>
-                
                 
                 <div id="Parametre">
                         <user-information></user-information>
                         <!--<element-epicerie title="Compte"></element-epicerie>-->
-                        <element-scanner></element-scanner>
+                        <liste-scanner></liste-scanner>
                         
                         <center>
                             <google-signin client-id="590129464922-hi0of8i77tujpkfputuhijtbvf9fkbg9.apps.googleusercontent.com" 

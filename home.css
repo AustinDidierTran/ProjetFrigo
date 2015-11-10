@@ -24,7 +24,10 @@ h1 {
 body {
 
 
-  background-color: rgb(52,68,119);
+ /* background-color: rgb(52,68,119);*/
+ background-image:url("http://www.fixabay.com/images/Abstract/pj4g4x3jja3.png");
+ background-size: 100% 100%;
+     /*background-repeat: repeat;*/
 }
 
 #top-toolbar {
@@ -107,7 +110,7 @@ paper-material {
 
     /* min-width: 100%;
      min-height:700px;*/
-      background:rgb(52,68,119);
+      background:rgb(52,68,119,0.2);
 
      /*background-image: url("/IMAGES/BackFruits.jpg"); /*image provisoire*/
     
